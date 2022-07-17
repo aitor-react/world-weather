@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme, GlobalStyles } from './theme';
+import { Routes, Route } from 'react-router-dom';
+import useLocalStorage from './hooks/useLocalStorage';
+import Header from './components/Header';
+import CardCountries from './pages/CardCountries';
+import Country from './pages/Country';
+import ErrorMessage from './components/ErrorMessage';
+import ScrollToTop from './components/ScrollToTop';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [theme, setTheme] = useLocalStorage('theme', 'light'),
+			isDarkTheme = theme === 'dark',
+			toggleTheme = () => setTheme(isDarkTheme ? 'light' : 'dark');
+		
+	const API_URL = 'https://restcountries.com/v2/';
+
+	return (
+		<ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+			<GlobalStyles />
+			<Header theme={theme} toggleTheme={toggleTheme} />
+			<main>
+				<Routes>
+					<Route path="/" element={<CardCountries API_URL={API_URL} />} />
+					<Route path="/:code" element={<Country API_URL={API_URL} />} />
+					<Route path="/*" element={<ErrorMessage />} />
+				</Routes>
+			</main>
+			<ScrollToTop />
+		</ThemeProvider>
+	);
 }
 
 export default App;

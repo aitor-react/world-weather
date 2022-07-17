@@ -1,0 +1,26 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: none;
+	list-style: none;
+	outline: none;
+	box-sizing: border-box;
+}
+::-webkit-scrollbar {
+	width: .7rem;
+}
+::-webkit-scrollbar-track {
+	background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+	background: var(--text);
+	border-radius: 1rem;
+}
+html {
+	scrollbar-width: thin;
+	scrollbar-color: var(--text) transparent;
+	scroll-behavior: smooth;
+}
+.visible { visibility: visible !important;
+}
