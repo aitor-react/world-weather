@@ -9,11 +9,11 @@ const ErrorMessage = ({ resetQuery, setApiParam }) => {
    return(
       <DivError>
          <ImgError src={Space} alt="Something wrong" />
-         <div>
+         <>
             <h1>Ops! Something wrong</h1>
             <p>Brace youserf till I get the error fixed.<br />You may also refresh the page or try again later.</p>
             <GoHomeButton onClick={handleGoHome} value="all">Go Home</GoHomeButton>
-         </div>
+         </>
       </DivError>
    );
 }

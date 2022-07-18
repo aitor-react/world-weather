@@ -14,14 +14,14 @@ const CountryWeather = ({ latCountry, lonCountry }) => {
             : error || data.status === 404 ?
                <h2>Ops! Something wrong with Weather data.</h2>
                :
-               <div>
+               <>
                   <h2>Weather {data.name}</h2>
                   <Table>
                      <Tablecaption>
-                        <div>
+                        <>
                            <h3>{data.weather && data.weather[0].main}</h3>
                            <em>{data.weather && data.weather[0].description}</em>
-                        </div>
+                        </>
                         <img
                            src={`http://openweathermap.org/img/wn/${data.weather && data.weather[0].icon}@2x.png`}
                            alt={data.name+' weather'}
@@ -59,7 +59,7 @@ const CountryWeather = ({ latCountry, lonCountry }) => {
                         }
                      </tbody>
                   </Table>
-               </div>
+               </>
          }
       </>
    );

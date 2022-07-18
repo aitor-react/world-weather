@@ -19,7 +19,7 @@ const SingleCard = ({ API_URL, resetQuery, setApiParam }) => {
                         <Link to={`/${country.alpha3Code}`}>
                            <img src={country.flag} alt={country.name + ' Flag'} />
                         </Link>
-                        <div>
+                        <>
                            <Link to={`/${country.alpha3Code}`}>
                               <h2>{country.name}</h2>
                            </Link>
@@ -28,7 +28,7 @@ const SingleCard = ({ API_URL, resetQuery, setApiParam }) => {
                               <li><strong>Region:</strong> {country.region}</li>
                               <li><strong>Capital:</strong> {country.capital !== undefined ? country.capital : 'No Capital'}</li>
                            </ul>
-                        </div>
+                        </>
                      </DivCard>)
                   }
                </>

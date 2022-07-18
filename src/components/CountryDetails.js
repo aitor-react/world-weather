@@ -18,7 +18,7 @@ const CountryDetails = ({data, API_URL}) => {
       <>
          <img src={data.flag} alt={data.name + ' Flag'} />
 
-         <div>
+         <>
             <h1 style={{fontSize: '2rem'}}>{data.name}</h1>
             <DivUlInfo>
                <ul>
@@ -52,7 +52,7 @@ const CountryDetails = ({data, API_URL}) => {
                   }
                </ul>
             </DivBorders>
-         </div>
+         </>
       </>
    );
 }
