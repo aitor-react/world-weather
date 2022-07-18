@@ -1,19 +1,29 @@
+//CSS style and theme
 import './App.css';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme, GlobalStyles } from './theme';
+
+//Router
 import { Routes, Route } from 'react-router-dom';
-import useLocalStorage from './hooks/useLocalStorage';
+
+//Components
 import Header from './components/Header';
-import CardCountries from './pages/CardCountries';
-import Country from './pages/Country';
 import ErrorMessage from './components/ErrorMessage';
 import ScrollToTop from './components/ScrollToTop';
 
+//Pages
+import CardCountries from './pages/CardCountries';
+import Country from './pages/Country';
+
+//Custom hooks
+import useLocalStorage from './hooks/useLocalStorage';
+
+
 
 function App() {
-	const [theme, setTheme] = useLocalStorage('theme', 'light'),
+	const [theme, setTheme] = useLocalStorage('theme', 'dark'),
 			isDarkTheme = theme === 'dark',
-			toggleTheme = () => setTheme(isDarkTheme ? 'light' : 'dark');
+			toggleTheme = () => setTheme(isDarkTheme ? 'dark' : 'light');
 		
 	const API_URL = 'https://restcountries.com/v2/';
 
